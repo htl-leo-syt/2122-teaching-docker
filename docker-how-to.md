@@ -2,24 +2,24 @@
 
 ## Dockerfile - Image bauen
 
-```cd``` in das Quellcode-Verzeichnis (Root-Level, dort wo das .sln-File liegt ...)
+```cd``` in das Quellcode-Verzeichnis (Root-Level, dort wo das Dockerfile liegt ...)
 
 - ```-f``` wo liegt das Dockerfile aus Sicht des ```build context```
 - ```-t``` definiere Image Tag (image name)
 - ```.``` Build-Context (aktuelles Verzeichnis)
 
 ### Build-Kommando
-```docker build -f ./AspRestBackend/Dockerfile -t my-demo-backend .```
+```docker build -f ./perhapsanotherfolder/Dockerfile -t my-demo-image .```
 
 Mit ```docker image ls``` neu erstelltes Image überprüfen
 
 ### Container starten
-```docker run -p 80:80 -d my-demo-backend```
+- falls das Image ein Server ist, der auf Port 80 horcht ...
+    ```docker run -p 80:80 -d my-demo-image```
 
 ### Test
 http://localhost (Default-Port 80)
-- Swagger: http://localhost/swagger 
-- Achtung: ```Program.cs``` muss dazu Swagger nicht nur im Development-Mode einschalten!
+
 
 ## docker-compose
 
